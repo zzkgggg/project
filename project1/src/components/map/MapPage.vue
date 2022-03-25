@@ -53,7 +53,7 @@
               <el-icon><message /></el-icon>地区导航
             </template>
             <el-menu-item-group title="中医药文化基地">
-              <el-menu-item index="1-1" @click="toMap('Bmap')">Option 1</el-menu-item>
+              <el-menu-item index="1-1" @click="toMap('广州塔')">Option 1</el-menu-item>
               <el-menu-item index="1-2">Option 2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="中医药文化旅游景点">
@@ -120,6 +120,7 @@
 
 <script>
 import "../../main";
+// import { toGZT } from './BMAPPAGE'
 // import BMap from 'BMap';
 // import router from "@/router";
 // import BMapSymbolSHAPEPOINT from 'BMap_Symbol_SHAPE_POINT';
@@ -134,7 +135,7 @@ import "../../main";
     methods: {
 
     toMap(){
-      this.$router.push({path:'/map/Bmap'});
+      // toGZT();
     }
     }
 }
