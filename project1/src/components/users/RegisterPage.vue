@@ -29,8 +29,8 @@
             />
             <label>密码</label>
           </div>
-          <el-button size="large" class="button1"  @click="register()">注册</el-button>
-          <el-button size="large" class="button2"  @click="login()">登录</el-button>
+          <el-button size="large" class="button1"  @click="back_login()">返回</el-button>
+          <el-button size="large" class="button2"  @click="login()">完成</el-button>
         </form>
       </div>
     </div>
@@ -64,6 +64,9 @@ export default {
     localStorage.setItem('id',"");
   },
   methods: {
+    back_login(){
+      this.$router.push({path:'/login'});
+    }
     // login(){
     //   if(this.ruleForm.username===""){
     //     this.$message({type: 'info', message: '用户名必须输入！'});

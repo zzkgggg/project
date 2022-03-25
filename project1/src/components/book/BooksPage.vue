@@ -3,35 +3,35 @@
     <div class="w1200 cont">
       <ul>
         <li  >
-          <router-link to="index">网站首页</router-link>
+          <router-link to="/index">网站首页</router-link>
         </li>
         <li class="on">
-          <router-link to="books">藏书阁</router-link>
+          <router-link to="/books">藏书阁</router-link>
         </li>
         <li>
-          <router-link to="map">中医地图</router-link>
+          <router-link to="/map">中医地图</router-link>
         </li>
         <li>
-          <router-link to="yangsheng">中医养生</router-link>
+          <router-link to="/yangsheng">中医养生</router-link>
 
         </li>
       </ul>
       <!--      <a href="" class="logo"><img src="images/logo.png" /></a>-->
       <ul>
         <li>
-          <router-link to="culture">中医文化</router-link>
+          <router-link to="/culture">中医文化</router-link>
 
         </li>
         <li>
-          <router-link to="qiwu">中医器物</router-link>
+          <router-link to="/qiwu">中医器物</router-link>
 
         </li>
         <li>
-          <router-link to="test">知识检测</router-link>
+          <router-link to="/test">知识检测</router-link>
 
         </li>
         <li>
-          <router-link to="users">个人中心</router-link>
+          <router-link to="/users/:id">个人中心</router-link>
 
         </li>
       </ul>
@@ -43,24 +43,24 @@
 <!--    <img src="../../images/尚灸_06.png" />-->
   </div>
   <div class="breadcrumb">
-    <router-link to="login" class="on">中医经典</router-link>
-    <router-link to="login" >内经典籍</router-link>
-    <router-link to="login" >难经典籍</router-link>
-    <router-link to="login" >伤寒典籍</router-link>
-    <router-link to="login" >金匮典籍</router-link>
-    <router-link to="login" >温病典籍</router-link>
-    <router-link to="login" >中医入门</router-link>
+    <router-link to="login" class="on1">中医经典</router-link>
+    <router-link to="login" class="on1">内经典籍</router-link>
+    <router-link to="login" class="on1">难经典籍</router-link>
+    <router-link to="login" class="on1">伤寒典籍</router-link>
+    <router-link to="login" class="on1">金匮典籍</router-link>
+    <router-link to="login" class="on1">温病典籍</router-link>
+    <router-link to="login" class="on1">中医入门</router-link>
 
 
   </div>
   <div class="bread">
-    <router-link to="login" >基础理论</router-link>
-    <router-link to="login" >诊法典籍</router-link>
-    <router-link to="login" >本草典籍</router-link>
-    <router-link to="login" >方书典籍</router-link>
-    <router-link to="login" >医案医话</router-link>
-    <router-link to="login" >备读宝书</router-link>
-    <router-link to="login" >备查宝典</router-link>
+    <router-link to="login" class="on1">基础理论</router-link>
+    <router-link to="login" class="on1">诊法典籍</router-link>
+    <router-link to="login" class="on1">本草典籍</router-link>
+    <router-link to="login" class="on1">方书典籍</router-link>
+    <router-link to="login" class="on1">医案医话</router-link>
+    <router-link to="login" class="on1">备读宝书</router-link>
+    <router-link to="login" class="on1">备查宝典</router-link>
 
   </div>
 
@@ -202,5 +202,9 @@ export default {
 </script>
 
 <style scoped>
-
+.on1:hover {
+  color: #fff;
+  font-size: 18px;
+  background: url(../../images2/active.png) no-repeat center;
+}
 </style>

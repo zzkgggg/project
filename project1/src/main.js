@@ -9,6 +9,7 @@ const app=createApp(App)
 app.use(ElementPlus)
 app.use(router).mount('#app')
 export default {
+    name:'main',
     // 后端地址
     url:"http://127.0.0.1:9090"
 }

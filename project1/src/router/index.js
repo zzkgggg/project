@@ -33,7 +33,20 @@ const routes = [
         path:'collection',
         name: 'collection',
         component:()=>import('../components/users/CollectionPage.vue')
+      },
+      {
+        path:'regular',
+        name: 'regular',
+        component:()=>import('../components/users/RegularPage.vue')
+      },
+      {
+        path:'feedback',
+        name: 'feedback',
+        component:()=>import('../components/users/FeedbackPage.vue')
       }
+
+
+
     ]
   },
   {
@@ -41,7 +54,12 @@ const routes = [
   },
 
   {
-    path: '/map', name: 'map', component:()=>import('../components/map/MapPage.vue')
+    path: '/map', name: 'map', component:()=>import('../components/map/MapPage.vue'),
+    children:[ {
+      path:'Bmap',
+      name:'Bmap',
+      component:()=>import('../components/map/BMAPPAGE.vue')
+    }]
   },
 
   {
@@ -53,11 +71,32 @@ const routes = [
   },
 
   {
-    path: '/test', name: 'test', component:()=>import('../components/test/TestPage.vue')
+    path: '/test', name: 'test', component:()=>import('../components/test/TestPage.vue'),
+    children:[ {
+      path:'test_ys',
+      name:'test_ys',
+      component:()=>import('../components/test/Test_ys.vue')
+    },
+      {
+        path:'test_culture',
+        name:'test_culture',
+        component:()=>import('../components/test/Test_culture.vue')
+      },
+      {
+        path:'test_qw',
+        name:'test_qw',
+        component:()=>import('../components/test/Test_qw.vue')
+      }
+    ]
   },
 
   {
-    path: '/culture', name: 'culture', component:()=>import('../components/culture/CulturePage.vue')
+    path: '/culture', name: 'culture', component:()=>import('../components/culture/CulturePage.vue'),
+    children:[ {
+      path:'CPage',
+      name:'CPage',
+      component:()=>import('../components/culture/CPage1.vue')
+    }]
   },
 
 
