@@ -46,129 +46,220 @@
     </div>
     <div class="cont w1200">
       <ul class="ul1">
-        <li>
-          <a href="">
+        <router-link to="/qiwudetail/1">
+          <li>
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <h3>针砭用具</h3>
+              <p>针刺疗法历史悠久，是中国传统医学独创的一种治疗方法，在《黄帝内经》其理论体系已基本成形。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
-        </li>
+          </li>
+
+        </router-link>
+
+
+
+        <router-link to="/qiwudetail/2">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
-              <h5>2019.11.11</h5>
+              <h3>灸焫用具</h3>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+        </router-link>
+
+            <router-link to="/qiwudetail/3">
         <li>
-          <a href="">
+
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
+              <h3>痧罐用具</h3>
               <h5>2019.11.11</h5>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+            </router-link>
       </ul>
 
       <ul class="ul1">
+        <router-link to="/qiwudetail/4">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
+              <h3>炮制用具</h3>
               <h5>2019.11.11</h5>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+        </router-link>
+
+          <router-link to="/qiwudetail/5">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
+              <h3>串铃与招幌</h3>
               <h5>2019.11.11</h5>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+          </router-link>
+
+
+          <router-link to="/qiwudetail/6">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
+              <h3>葫芦与青囊</h3>
               <h5>2019.11.11</h5>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+              </router-link>
       </ul>
 
       <ul class="ul1">
+        <router-link to="/qiwudetail/7">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
+              <h3>杏林与橘井</h3>
               <h5>2019.11.11</h5>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+        </router-link>
+
+          <router-link to="/qiwudetail/8">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
-              <h5>2019.11.11</h5>
+              <h3>甲骨</h3>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+          </router-link>
+
+            <router-link to="/qiwudetail/9">
         <li>
-          <a href="">
             <figure>
               <img src="../../images/尚灸_90.png"/>
             </figure>
             <figcaption>
-              <h3>器物</h3>
-              <h5>2019.11.11</h5>
+              <h3>缣帛</h3>
               <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
-          </a>
         </li>
+            </router-link>
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>简牍</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>金石</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>纸张</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>太医院及宫廷医药场所</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>医堂和疾馆</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>药肆与药局</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="">-->
+<!--            <figure>-->
+<!--              <img src="../../images/尚灸_90.png"/>-->
+<!--            </figure>-->
+<!--            <figcaption>-->
+<!--              <h3>医馆与药肆环境</h3>-->
+<!--              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>-->
+<!--              <div><span>MORE</span><b></b></div>-->
+<!--            </figcaption>-->
+<!--          </a>-->
+<!--        </li>-->
       </ul>
     </div>
   </div>

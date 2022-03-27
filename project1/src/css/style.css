@@ -1003,6 +1003,7 @@ body {
     width: 80px;
     background: #F5F5F5;
     padding: 10px;
+    text-align: center;
 }
 
 .newslist figcaption {
@@ -1011,7 +1012,7 @@ body {
     padding-left: 20px;
 }
 
-.newslist li a {
+.newslist li  {
     display: block;
     overflow: hidden;
     clear: both;
@@ -1050,7 +1051,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 15px;
+    margin-top: 10px;
     transition: all 0.6s;
 }
 
@@ -1058,12 +1059,12 @@ body {
     font-size: 14px;
     color: #666;
     line-height: 26px;
-    height: 52px;
+    height: 60px;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
-.newslist li:hover a {
+.newslist li:hover  {
     transform: translateX(20px);
 }
 
@@ -1071,7 +1072,7 @@ body {
     color: #cf4a53;
 }
 
-.newslist li:hover a {
+.newslist li:hover  {
     border-color: #cf4a53;
 }
 
