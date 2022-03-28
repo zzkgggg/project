@@ -145,16 +145,7 @@ export default {
 
 </script>
 
-<style scoped>
-.map {
-  width: 2000px;
-  height: 1000px;
-  margin-left: 0px;
-}
+<style scoped rc="../../css/MapPage.css">
 
-#allmap {
 
-  width: 100%;
-  height: 100%;
-}
 </style>

@@ -374,24 +374,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped src="../../css/YSPage.css">
 
-.el-button-change{
-  display: block;
-  width: 48%;
-  float: left;
-  overflow: hidden;
-  color: #666;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 15px;
-  transition: all 0.6s;
-}
 
-.el-button-change i{
-
-  color: #000;
-
-}
 
 </style>
