@@ -6,11 +6,16 @@ const Home = () => import('../App.vue')
 
 const routes = [
     {path: '/', name: 'home', component: Home},
+
+
     {
         path: '/index',
         name: 'index',
         component: () => import('../components/index/IndexPage.vue')
     },
+
+
+
     {
         path: '/login',
         name: 'login',
@@ -45,8 +50,30 @@ const routes = [
 
         ]
     },
+
+
     {
-        path: '/books', name: 'books', component: () => import('../components/book/BooksPage.vue')
+        path: '/bookindex', name: 'bookindex', component: () => import('../components/book/IndexPage.vue'),
+        children: [
+            {
+                path: '/media',
+                name: 'media',
+                component: () => import('../components/book/MediaPage.vue')
+            },
+
+            {
+                path: '/books',
+                name: 'books',
+                component: () => import('../components/book/BooksPage.vue')
+            },
+
+            {
+                path: '/media/',
+                name: 'media',
+                component: () => import('../components/book/MediaPage.vue')
+
+            },
+        ]
     },
 
     {
@@ -55,7 +82,14 @@ const routes = [
             path: 'Bmap',
             name: 'Bmap',
             component: () => import('../components/map/BMAPPAGE.vue')
-        }]
+        },
+
+            {
+                path: '/mapcustom',
+                name: 'mapcustom',
+                component: () => import('../components/map/MapPageFrame.vue')
+            },
+        ]
     },
 
     {
@@ -115,6 +149,8 @@ const routes = [
         name: 'CPageSon',
         component: () => import('../components/culture/CPageSon.vue')
     },
+
+
 
 ]
 

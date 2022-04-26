@@ -34,3 +34,14 @@
     height: 1000px;
     margin-left: 0px;
 }
+
+.mapbutton1{
+    margin-right: 100px;
+    margin-top: 20px;
+}
+
+.mapbutton2{
+    margin-left: 20px;
+    margin-right: 80px;
+    margin-top: 20px;
+}

@@ -21,7 +21,7 @@ export default {
     var map = new BMap.Map("map");
     // 初始化地图,设置中心点坐标和地图级别
     // map.setMapStyleV2( {styleId: '799c798611701f0a59af1ecf46e46425'});
-    map.centerAndZoom(new BMap.Point(116.403414, 39.924091), 17);
+    map.centerAndZoom(new BMap.Point(113.331084,23.112223), 16);
     map.enableScrollWheelZoom(true);
 
 
@@ -138,7 +138,114 @@ export default {
       marker1.addEventListener("mouseover", function () {
         this.openInfoWindow(info);
       })
-    }
+    },
+
+    toyiyuan(){
+      var map = new BMap.Map("map");
+      // 初始化地图,设置中心点坐标和地图级别
+      // map.setMapStyleV2( {styleId: '799c798611701f0a59af1ecf46e46425'});
+      map.centerAndZoom(new BMap.Point(113.250165,23.115077), 20);
+      map.enableScrollWheelZoom(true);
+      // var marker =
+      //     [
+      //       {title: "名称：广州塔（赤岗塔）", point: "113.330934,23.113401", address: "广东省广州市广州塔（赤岗塔） ", tel: "18500000000"},
+      //     ];
+      var point1 = new BMap.Point(113.250165,23.115077);
+      var marker1 = new window.BMap.Marker(point1);
+      map.addOverlay(marker1);
+      // 设置框样式
+      var opts = {
+        width: 2500,     // 信息窗口宽度
+        height: 100,    // 信息窗口高度
+        title: "广州中医药大学附属第一医院"  // 信息窗口标题
+      }
+      // 框内容
+      var info=new window.BMap.InfoWindow("<p style='font-size:12px;lineheight:1.8em;'>广州中医药大学第一附属医院是一所大型综合性中医医院，创建于1964年，2015年获批成立广东省中医临床研究院，是我国高等中医药临床教育、医疗、科研重要基地之一，为全国首批三级甲等中医医院、示范中医医院、首批广东省中医名院、广东省高水平医院重点建设医院，国家中医临床研究基地、广东省中医临床研究基地、广州中医药大学岭南医学研究中心，首批“国家中医药传承创新工程重点中医医院建设单位”，重大疫情救治基地建设单位，心血管科等6个专科被确定为国家区域中医（专科）诊疗中心，是全国区域中医（专科）诊疗中心最多医院之一。</p>",opts);
+      marker1.addEventListener("mouseover", function () {
+        this.openInfoWindow(info);
+      })
+    },
+
+    tolingnan(){
+      var map = new BMap.Map("map");
+      // 初始化地图,设置中心点坐标和地图级别
+      // map.setMapStyleV2( {styleId: '799c798611701f0a59af1ecf46e46425'});
+      map.centerAndZoom(new BMap.Point(113.413021,23.066093), 20);
+      map.enableScrollWheelZoom(true);
+      // var marker =
+      //     [
+      //       {title: "名称：广州塔（赤岗塔）", point: "113.330934,23.113401", address: "广东省广州市广州塔（赤岗塔） ", tel: "18500000000"},
+      //     ];
+      var point1 = new BMap.Point(113.413021,23.066093);
+      var marker1 = new window.BMap.Marker(point1);
+      map.addOverlay(marker1);
+      // 设置框样式
+      var opts = {
+        width: 2500,     // 信息窗口宽度
+        height: 100,    // 信息窗口高度
+        title: "岭南名医壁"  // 信息窗口标题
+      }
+      // 框内容
+      var info=new window.BMap.InfoWindow("<p style='font-size:12px;lineheight:1.8em;'>岭南名医壁选取了岭南医学史上10位在学术上有突出贡献的医药学家，包括葛洪、刘昉、释继洪、何克谏、何梦瑶、朱沛文、邱玺、罗汝兰、陈伯坛、黄省三，同时结合岭南文化及岭南医药特色进行内容及背景设计。</p>",opts);
+      marker1.addEventListener("mouseover", function () {
+        this.openInfoWindow(info);
+      })
+    },
+
+    toqingping(){
+      var map = new BMap.Map("map");
+      map.centerAndZoom(new BMap.Point(113.249825,23.1150213), 20);
+      map.enableScrollWheelZoom(true);
+
+      var point1 = new BMap.Point(113.249825,23.115021);
+      var marker1 = new window.BMap.Marker(point1);
+      map.addOverlay(marker1);
+      // 设置框样式
+      var opts = {
+        width: 2500,     // 信息窗口宽度
+        height: 100,    // 信息窗口高度
+        title: "清平中药材专业市场"  // 信息窗口标题
+      }
+      // 框内容
+      var info=new window.BMap.InfoWindow("<p style='font-size:12px;lineheight:1.8em;'>广州清平中药材专业市场是国内开办最早的中药材市场之一。它坐落在珠江河畔，位于清平路、梯云路的十字交汇处，有商铺1500多家，是唯一一个建立在大都市中心区域的中药材市场。市场的建筑外貌既保留了岭南传统的骑楼特色，又融合了欧陆建筑的风格，成为具有西关特色的商贸、旅游一条街，备受中外游客青睐。</p>",opts);
+      marker1.addEventListener("mouseover", function () {
+        this.openInfoWindow(info);
+      })
+    },
+
+    togyjt(){
+      var map = new BMap.Map("map");
+      // 初始化地图,设置中心点坐标和地图级别
+      // map.setMapStyleV2( {styleId: '799c798611701f0a59af1ecf46e46425'});
+      map.centerAndZoom(new BMap.Point(113.253144,23.114031), 20);
+      map.enableScrollWheelZoom(true);
+      // var marker =
+      //     [
+      //       {title: "名称：广州塔（赤岗塔）", point: "113.330934,23.113401", address: "广东省广州市广州塔（赤岗塔） ", tel: "18500000000"},
+      //     ];
+      var point1 = new BMap.Point(113.253144,23.114031);
+      var marker1 = new window.BMap.Marker(point1);
+      map.addOverlay(marker1);
+      // 设置框样式
+      var opts = {
+        width: 2500,     // 信息窗口宽度
+        height: 100,    // 信息窗口高度
+        title: "广州医药集团"  // 信息窗口标题
+      }
+      // 框内容
+      var info=new window.BMap.InfoWindow("<p style='font-size:12px;lineheight:1.8em;'>诞生于广州这片中国近代与现代革命策源地的广药集团，始终与“红色血脉”紧紧相连，培育了中国共产党早期领导人、广州起义的组织发动者、中央政治局常委杨殷，孙中山卫队长李朗如，中国“双百”人物向秀丽等革命先辈，王老吉更曾为林则徐、毛泽东除病祛疾，留下佳话。\n" +
+          "\n" +
+          "红色血脉代代相传，如今广药集团每年均开展纪念革命烈士、纪念向秀丽、纪念神农诞辰等传承红色基因主题活动，并创新性地建立了“123大党建工作模式”“非公企业党建1+4模式”等党建创新模式。。</p>",opts);
+      marker1.addEventListener("mouseover", function () {
+        this.openInfoWindow(info);
+      })
+    },
+
+
+
+
+
+
   }
 
 }

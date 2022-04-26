@@ -7,7 +7,7 @@
           <p></p>
         </li>
         <li>
-          <router-link to="/books">藏书阁</router-link>
+          <router-link to="/books">中医资源库</router-link>
         </li>
         <li class="on">
           <router-link to="/map">中医地图</router-link>
@@ -47,71 +47,85 @@
   >
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <el-scrollbar>
-        <el-menu :default-openeds="['1', '3']">
+        <el-menu :default-openeds="['1','2', '3']">
           <el-sub-menu index="1">
             <template #title>
-              <el-icon>
-                <message/>
-              </el-icon>
+              广州中医名点
+            </template>
+            <el-menu-item index="1-1" @click="toyiyuan()">广州中医药大学附属第一医院</el-menu-item>
+            <el-menu-item index="1-2" @click="tolingnan()">岭南名医壁</el-menu-item>
+            <el-menu-item index="1-3" @click="toqingping()">清平中药材专业市场</el-menu-item>
+            <el-menu-item index="1-4" @click="togyjt()">广州医药集团</el-menu-item>
+          </el-sub-menu>
+
+
+
+          <el-sub-menu index="2">
+            <template #title>
               地区导航
             </template>
-            <el-menu-item-group title="中医药文化基地">
-              <el-menu-item index="1-1" @click="toZZL()">周祖陵森林公园</el-menu-item>
-              <el-menu-item index="1-2" @click="toTRT()">同仁堂</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="中医药文化旅游景点">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-              <el-menu-item index="1-3">Option 4</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="中草药养植基地">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-              <el-menu-item index="1-3">Option 4</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="中医药非物质文化遗产">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-              <el-menu-item index="1-3">Option 4</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="中医老字号">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-              <el-menu-item index="1-3">Option 4</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="中医药博物馆">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-              <el-menu-item index="1-3">Option 4</el-menu-item>
-            </el-menu-item-group>
-            <el-sub-menu index="1-4">
-              <template #title>Option4</template>
-              <el-menu-item index="1-4-1">Option 4-1</el-menu-item>
-            </el-sub-menu>
+            <el-menu-item index="2-1" @click="sendzuobiao1(18)">中医博物馆</el-menu-item>
+            <el-menu-item index="2-2" @click="sendzuobiao1(11)">百草基地</el-menu-item>
+            <el-menu-item index="2-3">养生健康馆</el-menu-item>
+            <el-menu-item index="2-4">诊疗馆</el-menu-item>
+            <el-menu-item index="2-5" @click="sendIframeWinpMessage1()">导航</el-menu-item>
+            <!--            <el-menu-item-group title="中草药养植基地">-->
+            <!--              <el-menu-item index="1-3">Option 3</el-menu-item>-->
+            <!--              <el-menu-item index="1-3">Option 4</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-menu-item-group title="中医药非物质文化遗产">-->
+            <!--              <el-menu-item index="1-3">Option 3</el-menu-item>-->
+            <!--              <el-menu-item index="1-3">Option 4</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-menu-item-group title="中医老字号">-->
+            <!--              <el-menu-item index="1-3">Option 3</el-menu-item>-->
+            <!--              <el-menu-item index="1-3">Option 4</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-menu-item-group title="中医药博物馆">-->
+            <!--              <el-menu-item index="1-3">Option 3</el-menu-item>-->
+            <!--              <el-menu-item index="1-3">Option 4</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-sub-menu index="1-4">-->
+            <!--              <template #title>Option4</template>-->
+            <!--              <el-menu-item index="1-4-1">Option 4-1</el-menu-item>-->
+            <!--            </el-sub-menu>-->
+
+
+          </el-sub-menu>
+
+          <el-sub-menu index="3">
+            <template #title>
+              中草药园导学图
+            </template>
+            <el-menu-item index="3-1" @click="sendzuobiao2(0,3)">初级导学图</el-menu-item>
+            <el-menu-item index="3-2" @click="sendzuobiao2(1,3)">中级导学图</el-menu-item>
+            <el-menu-item index="3-3" @click="sendzuobiao2(2,3)">高级导学图</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </el-scrollbar>
+
+
     </el-aside>
 
     <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-        <div class="toolbar">
-          <el-dropdown>
-            <el-icon style="margin-right: 8px; margin-top: 1px"
-            >
-              <setting
-              />
-            </el-icon>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>View</el-dropdown-item>
-                <el-dropdown-item>Add</el-dropdown-item>
-                <el-dropdown-item>Delete</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-          <span>Tom</span>
-        </div>
+      <el-header style="text-align: center; font-size: 12px; height: 80px">
+        <el-button-group>
+          <el-button class="mapbutton1" size="large" @click="toBmap()">广州地区中医馆</el-button>
+          <el-button class="mapbutton1" size="large" @click="changemap(1)">地图导航</el-button>
+          <el-button class="mapbutton2" size="large" @click="changemap(2)">中草药园导学图</el-button>
+        </el-button-group>
+
+
       </el-header>
 
       <el-main>
 
-        <BMAPPAGE ref="mychild"/>
+                <BMAPPAGE v-if="bmap==1" ref="mychild"/>
+        <!--        <MapPageFrame/>-->
+        <iframe src="static/index.html" style="width: 100%;height: 100%" frameborder="0" ref="iframe1"
+                v-if="index==1"></iframe>
+        <iframe src="static/index2.html" style="width: 100%;height: 100%" frameborder="0" ref="iframe2"
+                v-if="index==2"></iframe>
 
       </el-main>
     </el-container>
@@ -124,6 +138,7 @@
 <script>
 import "../../main";
 import BMAPPAGE from "@/components/map/BMAPPAGE";
+// import MapPageFrame from "@/components/map/MapPageFrame"
 // import BMap from 'BMap';
 // import router from "@/router";
 // import BMapSymbolSHAPEPOINT from 'BMap_Symbol_SHAPE_POINT';
@@ -131,23 +146,107 @@ import BMAPPAGE from "@/components/map/BMAPPAGE";
 export default {
   name: "MapPage",
   data() {
-    return {};
+    return {
+      iframeWin: {},
+      data_receive: {},
+      zuobiao: new Array(),
+      index: 2,
+      bmap:1
+    };
   },
   components: {
-    BMAPPAGE
+    BMAPPAGE,
+    // MapPageFrame
   },
   mounted() {
-    this.$router.push({path: '/map/Bmap'});
+    // this.$router.push({path: '/map/mapcustom'});
+    //发送数据
+    if(this.index==1){
+      this.iframeWin = this.$refs.iframe1.contentWindow;
+    }
+    else {
+      this.iframeWin = this.$refs.iframe2.contentWindow;
+    }
+
+
+    //接收数据
+    window.addEventListener("message", this.handleMessage);
+
+
   },
   methods: {
 
-    toZZL() {
-      this.$refs.mychild.toZZL();
+    toyiyuan() {
+      this.$refs.mychild.toyiyuan();
     },
 
     toTRT(){
       this.$refs.mychild.toTRT();
+    },
+
+    tolingnan() {
+      this.$refs.mychild.tolingnan();
+    },
+
+    toqingping() {
+      this.$refs.mychild.toqingping();
+    },
+
+    togyjt() {
+      this.$refs.mychild.togyjt();
+    },
+
+    toBmap(){
+       this.bmap=1;
+    },
+
+
+    sendzuobiao1(goal) {
+      if(this.index==1){
+        this.iframeWin = this.$refs.iframe1.contentWindow;
+      }
+      else{
+        this.iframeWin = this.$refs.iframe2.contentWindow;
+      }
+      this.zuobiao[0] = goal;
+      this.sendIframeWinpMessage();
+    },
+
+
+
+    sendzuobiao2(s,e) {
+      if(this.index==1){
+        this.iframeWin = this.$refs.iframe1.contentWindow;
+      }
+      else{
+        this.iframeWin = this.$refs.iframe2.contentWindow;
+      }
+      this.zuobiao[0] = s;
+      this.zuobiao[1] = e;
+      this.sendIframeWinpMessage();
+    },
+
+
+    sendIframeWinpMessage() {
+      this.iframeWin.postMessage({
+        params: {s:this.zuobiao[0],e:this.zuobiao[1]}/*在iframe页面中接收通过key也就是param接收，因此传输的数据可以是对象，包含多个key以及对应的数据*/
+
+      }, "*");
+    },
+
+    handleMessage(event) {
+      // 获取从iframe页面中传过来的值
+      // var cmd = event.data.cmd;
+      var params = event.data.params;
+      this.data_receive = params;
+    },
+
+    changemap(num) {
+      this.bmap=0;
+      return this.index = num;
+
     }
+
 
   }
 }
@@ -168,6 +267,20 @@ export default {
 </script>
 
 <style scoped src="../../css/MapPage.css">
+.span1 {
+  margin-right: 980px;
+  font-size: 40px;
+}
+
+
+.toolbar {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
 
 
 </style>

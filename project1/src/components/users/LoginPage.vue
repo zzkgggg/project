@@ -37,7 +37,7 @@
 </template>
 
 <script scope>
-// import main from '../../main'
+import main from '../../main'
 export default {
   data: function(){
     return {
@@ -64,40 +64,40 @@ export default {
   methods: {
     register(){
       this.$router.push('register');
-    }
-    // login(){
-    //   if(this.ruleForm.username===""){
-    //     this.$message({type: 'info', message: '用户名必须输入！'});
-    //   }else if(this.ruleForm.password===""){
-    //     this.$message({type: 'info', message: '密码必须输入！'});
-    //   }else{
-    //
-    //     this.$http.post(main.url+"/login/login",
-    //         {'username': this.ruleForm.username, 'password': this.ruleForm.password},
-    //         {
-    //           headers: {'Content-Type':'application/x-www-form-urlencoded'},
-    //           emulateJSON: true
-    //         }).then(
-    //         success => {
-    //           if(success.data.id != null){
-    //             this.$message({type: 'success', message: '登录成功'});
-    //             localStorage.setItem('username',this.ruleForm.username);
-    //             localStorage.setItem('role',success.data.role);
-    //             localStorage.setItem('id',success.data.id);
-    //             this.$router.push({ path: '/admin' });
-    //             this.ruleForm.username='';
-    //           }else{
-    //             this.$message({type: 'error', message: '用户名或密码错误'});
-    //           }
-    //           this.ruleForm.password='';
-    //           this.dialogVisible=true;
-    //         }
-    //     );
-    //   }
-    // },
-    // cancel(){
-    //   this.$router.push({ path: '/' });
-    // },
+    },
+    login(){
+      if(this.ruleForm.username===""){
+        this.$message({type: 'info', message: '用户名必须输入！'});
+      }else if(this.ruleForm.password===""){
+        this.$message({type: 'info', message: '密码必须输入！'});
+      }else{
+
+        this.$http.post(main.url+"/login/login2",
+            {'username': this.ruleForm.username, 'password': this.ruleForm.password},
+            {
+              headers: {'Content-Type':'application/x-www-form-urlencoded'},
+              emulateJSON: true
+            }).then(
+            success => {
+              if(success.data.id != null){
+                this.$message({type: 'success', message: '登录成功'});
+                localStorage.setItem('username',this.ruleForm.username);
+                localStorage.setItem('role',success.data.role);
+                localStorage.setItem('id',success.data.id);
+                this.$router.push({ path: '/admin' });
+                this.ruleForm.username='';
+              }else{
+                this.$message({type: 'error', message: '用户名或密码错误'});
+              }
+              this.ruleForm.password='';
+              this.dialogVisible=true;
+            }
+        );
+      }
+    },
+    cancel(){
+      this.$router.push({ path: '/' });
+    },
 
   }
 }

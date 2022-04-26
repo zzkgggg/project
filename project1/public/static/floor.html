@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<script type="text/javascript" src="js/three.js"></script>
+<script type="text/javascript" src="js/Earcut.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="basic.js"></script>
+<script src="floor.js"></script>
+<script src="route.js"></script>
+<script src="buffer.js"></script>
+<script src="js/tween.min.js"></script>
+<script>
+    var renderer, scene, camera;
+    var INTERSECTED;
+    var raycaster;
+    var mouse;
+    var controls ;
+    // 边框线的高度
+    var lineHeight = 1.75;
+    // 块的高度
+    var cubeHeight = 1.5;
+    function init() {
+        renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
+        renderer.setClearColor(0xF1F2F7);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color( 0xF1F2F7 );
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.lookAt(new THREE.Vector3(20, 0, 20));
+        camera.position.set(0, 40, 50);
+        // 光线的照射
+        var ambiColor = "#f2f2f2";
+        var spotLight = new THREE.SpotLight(ambiColor);
+        spotLight.position.set( -100, 100, -100);
+        scene.add(spotLight);
+        var spotLight2 = new THREE.SpotLight(ambiColor);
+        spotLight2.position.set( 100, 100, 150);
+        scene.add(spotLight2);
+
+        /*var ambientLight = new THREE.AmbientLight( 0xffffff, 0.8 );		//环境光
+        scene.add( ambientLight );
+        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.3 );		//直射光
+        directionalLight.position.set( 1, 1, 0 ).normalize();
+        scene.add( directionalLight );*/
+
+        //var ambientLight = new THREE.AmbientLight( 0xffffff, 1 );		//环境光
+        //scene.add( ambientLight );
+
+        controls = new THREE.OrbitControls( camera,renderer.domElement );//用户交互
+        //设置相机的角度范围
+        controls.maxPolarAngle = Math.PI * 0.5;
+        //设置相机距离原点的最远距离
+        controls.minDistance = 0;
+        //设置相机距离原点的最远距离
+        controls.maxDistance = 2000;
+        controls.maxDistance = 2000;
+
+        raycaster = new THREE.Raycaster();
+        mouse = new THREE.Vector2();
+        document.body.appendChild(renderer.domElement);
+        document.addEventListener('click', onDocumentMouseClick, false);
+        //楼层以及子项信息
+        initGroup();
+        addFloor();
+        render();
+    }
+
+    var floorGroup;     //楼层元素组
+    var labelGroup;     //楼层标注组
+
+    //初始化一些必要的组
+    function initGroup(){
+        floorGroup =  new THREE.Object3D();
+        scene.add(floorGroup);
+
+        labelGroup = new THREE.Object3D();
+        scene.add(labelGroup);
+    }
+
+    var selectedCell;       //选中的房间
+    var instantMaterial;    //储存选中mesh的材质
+
+    function onDocumentMouseClick(event) {
+        event.preventDefault();
+        var vector = new THREE.Vector3();//三维坐标对象
+        vector.set(
+                ( event.clientX / window.innerWidth ) * 2 - 1,
+                - ( event.clientY / window.innerHeight ) * 2 + 1,
+                0.5 );
+        vector.unproject( camera );
+        var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+        var intersects = raycaster.intersectObjects((floorGroup instanceof THREE.Object3D)?floorGroup.children:[]);
+            if (intersects.length > 0 && intersects[0].object instanceof THREE.Mesh) {      //有时先选到线,选不中
+            var point = intersects[0].point;
+            console.log(point.x+","+point.y+","+point.z);
+            if(selectedCell){
+                selectedCell.material = instantMaterial;
+            }
+            selectedCell = intersects[0].object;//取第一个物体
+            instantMaterial = selectedCell.material;
+            selectedCell.material =  new THREE.MeshBasicMaterial({color: "#f86332",side:THREE.DoubleSide});
+        }else{
+            if(selectedCell){
+                selectedCell.material = instantMaterial;
+                selectedCell = null;
+            }
+        }
+        //mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        //mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+
+    function render() {
+        controls.update();
+        requestAnimationFrame(render);
+        renderer.render(scene, camera);
+        updateLabelSprite();
+    }
+    init();
+
+</script>
+</body>
+
+</html>

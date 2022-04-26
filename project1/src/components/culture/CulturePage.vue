@@ -6,7 +6,7 @@
           <router-link to="/index">网站首页</router-link>
         </li>
         <li>
-          <router-link to="/books">藏书阁</router-link>
+          <router-link to="/books">中医资源库</router-link>
         </li>
         <li>
           <router-link to="/map">中医地图</router-link>

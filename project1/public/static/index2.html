@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dijkstra</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<div style="position:absolute;z-index:100;top:20px;right:20px;width:120px;border:1px solid #666;padding: 5px;background-color: #ccc;">
+    开始节点：<input type="text" id="startIndex" style="width:30px" value=""/>
+    结束节点：<input type="text" id="endIndex" style="width:30px" value=""/>
+    <input type="button" value="开始导航" onclick="getRoute()"/>
+    <div id="routeResult" style="min-height:120px;background-color: #fff;"></div>
+</div>
+<script src="js/three.js"></script>
+<script type="text/javascript" src="js/Earcut.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="basic.js"></script>
+<script src="floor2.js"></script>
+<script src="route2.js"></script>
+<script src="buffer.js"></script>
+<script src="js/tween.min.js"></script>
+<script>
+    var controls;
+    var camera, scene, renderer, light;
+    var data_receive;
+    init();
+    animate();
+
+    //在html接收vue传过来的值
+
+    window.addEventListener("message", function (event) {
+        var data = event.data;
+        // console.log("从vue中获得的数据", data);
+        // 定义一个变量去接收,然后就可以获得vue传过来的数据
+        data_receive = data.params;
+        console.log("从vue中获得的数据", data_receive);
+    }, '*');
+
+
+    // 向vue中发送数据
+    window.parent.postMessage({
+        params: "你想传输的值",
+        cmd: "iframeOne" /*当有多个iframe页面传值时，可以设计通过其中的字段获取对应的值*/
+    }, '*');
+
+
+    function init() {
+        initScene();
+        initRender();
+        initCamera();
+        initControl();
+        initLight();
+
+        initGroup();
+        addFloor();  //floor.js
+        //addRouteLine();
+
+        document.addEventListener('click', onDocumentMouseClick, false);
+        window.addEventListener('resize', onWindowResize, false);
+    }
+
+    var floorGroup;     //楼层元素组
+    var labelGroup;     //楼层标注组
+    var arrowGroup;     //箭头组
+
+    //初始化一些必要的组
+    function initGroup() {
+        floorGroup = new THREE.Object3D();
+        scene.add(floorGroup);
+
+        labelGroup = new THREE.Object3D();
+        scene.add(labelGroup);
+
+        arrowGroup = new THREE.Object3D();
+        scene.add(arrowGroup);
+    }
+
+    /**
+     * 从节点编号为start出发到end的路径规划
+     * */
+
+    function getRoute() {
+        // var start = Number(document.getElementById("startIndex").value);
+        // let end = Number(document.getElementById("endIndex").value);
+        var start=Number(data_receive.s)
+        var end = Number(data_receive.e);
+        console.log(start, end);
+        var result = searchPath(start, end, matrix);
+        if (result) {
+            var distance = result.distance;
+            var path = result.path;
+            if (path.length > 0) {
+                var coords = [];
+                for (var i = 0; i < path.length; i++) {
+                    var position = points[path[i]].position;
+                    coords.push([position[0], position[2]]);
+                }
+                addMeshLine(coords);
+                addRouteArrow(coords);
+            }
+            document.getElementById("routeResult").innerHTML = "从节点" + start + "到节点" + end + ",最短距离为" + distance + ",经过的节点为:" + path.join(",");
+        }
+        start = end;
+    }
+
+    var meshline;
+
+    function addMeshLine(lineCoords) {
+        if (meshline) {
+            scene.remove(meshline);
+        }
+        let detailCoords = new lineBuffer({coords: lineCoords, radius: 0.5}).getBufferCoords();
+        var vertices = [], faces = [], data = [];
+        for (var i = 0; i < detailCoords.length; i++) {
+            vertices.push(new THREE.Vector3(detailCoords[i][0], 1, detailCoords[i][1]));
+            data.push(detailCoords[i][0], detailCoords[i][1]);
+        }
+        var triangles = Earcut.triangulate(data);
+        if (triangles && triangles.length != 0) {
+            for (var i = 0; i < triangles.length; i++) {
+                var tlength = triangles.length;
+                if (i % 3 == 0 && i < tlength - 2) {
+                    faces.push(new THREE.Face3(triangles[i], triangles[i + 1], triangles[i + 2]));                            //底部的三角面
+                }
+            }
+        }
+        var geometry = new THREE.Geometry();
+        geometry.vertices = vertices;
+        geometry.faces = faces;
+        let material = new THREE.MeshBasicMaterial({color: 0x008800, side: THREE.DoubleSide});
+        meshline = new THREE.Mesh(geometry, material);
+        scene.add(meshline);
+    }
+
+    var routeArrow;
+
+    function addRouteArrow(coords) {
+        if (routeArrow) {
+            scene.remove(routeArrow);
+        }
+        var texture = new THREE.TextureLoader().load("images/pointer.png");
+        var geometry = new THREE.PlaneGeometry(4, 4);
+        var material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide,
+            transparent: true, depthTest: false
+        });
+        routeArrow = new THREE.Mesh(geometry, material);
+        routeArrow.position.x = coords[0][0];
+        routeArrow.position.y = 3.2;
+        routeArrow.position.z = coords[0][1];
+        routeArrow.rotation.x = Math.PI / 2;
+        scene.add(routeArrow);
+
+        startAnimation(coords, 0);
+    }
+
+    /**
+     * 开始动画
+     * @param {String} type 动画类型，分为人物旋转动画rotate和人物移动动画run
+     * @param {String} index 到达的索引号
+     * */
+    function startAnimation(pointArray, index) {
+        if (!pointArray[index + 1]) {
+            return;
+        }
+        var curPoint = pointArray[index];
+        var nextPoint = pointArray[index + 1];
+        new TWEEN.Tween(routeArrow.position).to({			//动画过渡 y 1.8
+            x: nextPoint[0],
+            y: 1.1,
+            z: nextPoint[1]
+        }, 3000).onUpdate(function () {
+            var rotation = -Math.atan2(nextPoint[0] - curPoint[0], nextPoint[1] - curPoint[1]);
+            routeArrow.rotation.z = rotation;         //因为模型本身角度原因，需要调整+Math.PI/2
+        }).onComplete(function () {
+            index++;
+            startAnimation(pointArray, index);
+        }).start();
+    }
+
+    function onDocumentMouseClick(event) {
+        event.preventDefault();
+        var vector = new THREE.Vector3();//三维坐标对象
+        vector.set(
+            (event.clientX / window.innerWidth) * 2 - 1,
+            -(event.clientY / window.innerHeight) * 2 + 1,
+            0.5);
+        vector.unproject(camera);
+        var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+        var intersects = raycaster.intersectObjects((floorGroup instanceof THREE.Object3D) ? floorGroup.children : []);
+        if (intersects.length > 0 && intersects[0].object instanceof THREE.Mesh) {      //有时先选到线,选不中
+            var mesh = intersects[0].object;
+            var pointNum = mesh.pointNum;
+            if (pointNum != undefined) {
+                var start = document.getElementById("startIndex").value;
+                let end = document.getElementById("endIndex").value;
+                if (start != "" && end != "") {
+                    document.getElementById("startIndex").value = pointNum;
+                    document.getElementById("endIndex").value = "";
+                } else {
+                    if (start == "") {
+                        document.getElementById("startIndex").value = pointNum;
+                    } else {
+                        document.getElementById("endIndex").value = pointNum;
+                    }
+                }
+            }
+        } else {
+        }
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+        updateLabelSprite();
+        TWEEN.update();
+    }
+</script>
+
+</body>
+</html>

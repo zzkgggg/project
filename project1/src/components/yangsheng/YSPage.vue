@@ -6,7 +6,7 @@
           <router-link to="index">网站首页</router-link>
         </li>
         <li>
-          <router-link to="books">藏书阁</router-link>
+          <router-link to="books">中医资源库</router-link>
         </li>
         <li>
           <router-link to="map">中医地图</router-link>
@@ -53,7 +53,7 @@
         </div>
         <!--        精神养生-->
         <li>
-          <img src="../../images2/news_img1.jpg" alt="">
+          <img src="../../image_ys/jsys.webp" alt="">
           <div class="text">
             <h2>精神养生</h2>
             <div class="buttongroupys" v-if="catalog_js===4">
@@ -103,15 +103,19 @@
         </li>
         <!--        饮食养生-->
         <li>
-          <img src="../../images2/news_img1.jpg" alt="">
+          <img src="../../image_ys/ysys.webp" alt="">
           <div class="text">
-            <a href="news_xq.html"><h2>饮食养生</h2></a>
+            <a href="news_xq.html"><h2>睡眠养生</h2></a>
             <div class="buttongroupys" v-if="catalog_ys===4">
-              <el-button type="text" class="buttonys" @click="changecatalog_ys(1)">第一节：情志变化</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_ys(1)">第一节：睡眠的生理</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_ys(2)">第二节：调神养生法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_ys(2)">第二节：睡眠的时间与质量</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_ys(3)">第三节：调摄情绪法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_ys(3)">第三节：睡眠的方位与姿势</el-button>
+              <br>
+              <el-button type="text" class="buttonys" @click="changecatalog_ys(3)">第四节：睡眠与卧具</el-button>
+              <br>
+              <el-button type="text" class="buttonys" @click="changecatalog_ys(3)">第五节：睡眠环境与宜忌</el-button>
               <br>
               <el-alert class="alert1" show-icon title="点击相应目录可进入正文查看" type="info" close-text="关闭"/>
             </div>
@@ -132,7 +136,7 @@
         </li>
         <!--        起居养生-->
         <li>
-          <img src="../../images2/news_img1.jpg" alt="">
+          <img src="../../image_ys/qjys.webp" alt="">
           <div class="text">
             <a href="news_xq.html"><h2>起居养生</h2></a>
             <div class="buttongroupys" v-if="catalog_qj===4">
@@ -160,15 +164,17 @@
           </div>
         </li>
         <li>
-          <img src="../../images2/news_img1.jpg" alt="">
+          <img src="../../image_ys/ydys.webp" alt="">
           <div class="text">
             <a href="news_xq.html"><h2>运动养生</h2></a>
             <div class="buttongroupys" v-if="catalog_yd===4">
-              <el-button type="text" class="buttonys" @click="changecatalog_yd(1)">第一节：情志变化</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_yd(1)">第一节：起居有常</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_yd(2)">第二节：调神养生法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_yd(2)">第二节：劳逸适度</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_yd(3)">第三节：调摄情绪法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_yd(3)">第三节：服装顺时适体</el-button>
+              <br>
+              <el-button type="text" class="buttonys" @click="changecatalog_yd(3)">第四节:排便保健法</el-button>
               <br>
               <el-alert class="alert1" show-icon title="点击相应目录可进入正文查看" type="info" close-text="关闭"/>
             </div>
@@ -188,15 +194,17 @@
           </div>
         </li>
         <li>
-          <img src="../../images2/news_img1.jpg" alt="">
+          <img src="../../image_ys/smys.webp" alt="">
           <div class="text">
-            <a href="news_xq.html"><h2>睡眠养生</h2></a>
+            <a href="news_xq.html"><h2>饮食养生</h2></a>
             <div class="buttongroupys" v-if="catalog_sm===4">
-              <el-button type="text" class="buttonys" @click="changecatalog_sm(1)">第一节：情志变化</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_sm(1)">第一节 饮食养生的作用</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_sm(2)">第二节：调神养生法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_sm(2)">第二节 饮食调养的原则</el-button>
               <br>
-              <el-button type="text" class="buttonys" @click="changecatalog_sm(3)">第三节：调摄情绪法</el-button>
+              <el-button type="text" class="buttonys" @click="changecatalog_sm(3)">第三节 进食保健</el-button>
+              <br>
+              <el-button type="text" class="buttonys" @click="changecatalog_sm(3)">第四节 食后养生</el-button>
               <br>
               <el-alert class="alert1" show-icon title="点击相应目录可进入正文查看" type="info" close-text="关闭"/>
             </div>

@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <div class="testcontent">
+    <div class="TEST">
       <router-view/>
 
     </div>
@@ -76,48 +76,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped src="../../css/TestPage.css">
 
-.content {
-  background: url(../../images2/ziybj.jpg) no-repeat top center;
-}
-
-
-.w1200 {
-  width: 1200px;
-  margin: 0 auto;
-}
-
-.hd ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.hd li {
-  display: block;
-  width: 280px;
-  height: 60px;
-  background: url(../../images/line-bg.png) no-repeat;
-  background-position: 0 -61px;
-  margin-bottom: 20px;
-}
-
-.hd li a {
-  text-align: center;
-  display: block;
-  font-size: 24px;
-  font-family: "新宋体";
-  line-height: 63px;
-}
-
-.hd li.on, .hd li:hover {
-  background-position: 0 0;
-}
-
-.hd li.on a, .hd li:hover a {
-  color: #cf4a53;
-}
 
 
 </style>

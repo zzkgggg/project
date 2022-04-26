@@ -6,7 +6,7 @@
           <router-link to="/index">网站首页</router-link>
         </li>
         <li>
-          <router-link to="/books">藏书阁</router-link>
+          <router-link to="/books">中医资源库</router-link>
         </li>
         <li>
           <router-link to="/map">中医地图</router-link>
@@ -49,7 +49,7 @@
         <router-link to="/qiwudetail/1">
           <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/zbyj.webp"/>
             </figure>
             <figcaption>
               <h3>针砭用具</h3>
@@ -65,11 +65,11 @@
         <router-link to="/qiwudetail/2">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/aryj.jpg"/>
             </figure>
             <figcaption>
               <h3>灸焫用具</h3>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>作为一种古老的治疗手段，灸法产生于人类掌握手工取火之术后，与“火”的应用密切相关</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -79,12 +79,11 @@
         <li>
 
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/sgyj.jpg"/>
             </figure>
             <figcaption>
               <h3>痧罐用具</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>刮痧疗法，在正式体系形成之前，作为一种单独散在的技术校验，长期以来流传民间，薪火相承。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -95,12 +94,12 @@
         <router-link to="/qiwudetail/4">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/pzyj.webp"/>
             </figure>
             <figcaption>
               <h3>炮制用具</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>炮制，又称炮炙、修事、修治、修制、修合、合药、合和、合治等，是对药材进行加工处
+                理的一项传统制药技术。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -109,12 +108,11 @@
           <router-link to="/qiwudetail/5">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/cl.webp"/>
             </figure>
             <figcaption>
               <h3>串铃与招幌</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>走方郎中游走于乡间为人治病，手持一个串铃，以铃响声招呼病家。药店的招幌是一种以实物模型为征象的药业坐商标记。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -124,12 +122,11 @@
           <router-link to="/qiwudetail/6">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/hl.webp"/>
             </figure>
             <figcaption>
               <h3>葫芦与青囊</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>葫芦也叫壶，是古代盛酒水的器皿。青囊也是中医的代名词之一，讲的是华伦的故事。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -140,12 +137,11 @@
         <router-link to="/qiwudetail/7">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/xljj.webp"/>
             </figure>
             <figcaption>
               <h3>杏林与橘井</h3>
-              <h5>2019.11.11</h5>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>“杏林橘井园”，是中医界聚集园地的代称。医家每每以“杏林中人”自居。然而“杏林”一词典出汉末三国闽籍道医董奉。 “杏林园”即指历代医术高超医生聚集论坛的园地。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -154,11 +150,11 @@
           <router-link to="/qiwudetail/8">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/jg.webp"/>
             </figure>
             <figcaption>
               <h3>甲骨</h3>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>甲骨文，是刻在龟甲（主要是龟腹甲）和兽骨（主要是牛肩胛骨）上的商周古文字。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
@@ -167,11 +163,14 @@
             <router-link to="/qiwudetail/9">
         <li>
             <figure>
-              <img src="../../images/尚灸_90.png"/>
+              <img src="../../images_qw/cj.webp"/>
             </figure>
             <figcaption>
               <h3>缣帛</h3>
-              <p>说过的话富商大贾黄金分割京汉股份第三方健康斯蒂芬水稻阿萨黑石渡</p>
+              <p>缭吊是古代的丝织品，《墨子》里多次提及“书之竹吊，钱之金石”以传后世子孙，
+                西汉晚期刘向奉旨“校中秘书” 十余年，皆先书竹，改易刊定，然后“上素”，即以定本
+                缮写于缭吊，则嫌吊不仅是一种与竹简并称的书写材料，而且是一种更为高级的书写
+                材料。</p>
               <div><span>MORE</span><b></b></div>
             </figcaption>
         </li>
