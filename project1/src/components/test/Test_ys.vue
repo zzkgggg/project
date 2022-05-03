@@ -15,6 +15,7 @@
         <p style="font-weight: 700">
           第{{ index + 1 }}题：{{ item.ques }}
         </p>
+        <el-button @click="addfavourite(index)">添加收藏</el-button>
         <br>
         <!--        题目显示-->
         <!-- 题目绑定的值是 每一项的 item.choices  -->
@@ -39,8 +40,10 @@
 </template>
 
 <script>
+import main from "@/main";
+
 export default {
-  name: 'app',
+  name: 'Test_ys',
   data: function () {
     return {
       ruleForm: {
@@ -70,7 +73,27 @@ export default {
           this.ruleForm.result[i]=false
         }
       }
-    }
+    },
+
+    addfavourite(num){
+      var uid=localStorage.getItem('id');
+      var qid=num;
+      this.$http({
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        url: main.url+"/favorite/add",
+        method: 'post',
+        data: this.$qs.stringify({uid:uid,qid:qid})
+      }).then(success => {
+        if(success.data== 1){
+          this.$message({type: 'success', message: '收藏成功'});
+        }
+
+        this.dialogVisible=true;
+      })
+
+    },
   }
 
 }

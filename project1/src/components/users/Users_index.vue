@@ -77,7 +77,7 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item>个人信息</el-dropdown-item>
-                <el-dropdown-item>退出登录</el-dropdown-item>
+                <el-dropdown-item @click="logout()">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -120,6 +120,10 @@ export default {
     Setting,
     Bell
   },
+  created(){
+    if(localStorage.getItem('username')===""){
+      this.$router.replace('/login');
+    }},
   methods: {
     openhelp() {
       ElMessageBox.alert('This is a message', 'Title', {
@@ -130,6 +134,13 @@ export default {
     },
     tourl(name) {
       this.$router.push({path: name});
+    },
+    logout(){
+      var logout=""
+      localStorage.setItem('username',logout);
+      if(localStorage.getItem('username')===""){
+        this.$router.replace('/login');
+      }
     }
   }
 }

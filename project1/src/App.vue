@@ -11,8 +11,9 @@
 
 export default {
   name:'app',
+
   mounted(){
-    this.$router.push('/index')
+    this.$router.push('/login')
 
 
   }

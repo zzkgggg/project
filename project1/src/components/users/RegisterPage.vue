@@ -12,7 +12,7 @@
                 autocomplete="new-password"
                 type="text"
                 name=""
-                v-model="username"
+                v-model="ruleForm.username"
                 required=""
                 key="username-v3"
             />
@@ -23,14 +23,14 @@
                 autocomplete="new-password"
                 type="password"
                 name=""
-                v-model="password"
+                v-model="ruleForm.password"
                 required=""
                 key="password-v3"
             />
             <label>密码</label>
           </div>
           <el-button size="large" class="button1"  @click="back_login()">返回</el-button>
-          <el-button size="large" class="button2"  @click="login()">完成</el-button>
+          <el-button size="large" class="button2"  @click="register()">完成</el-button>
         </form>
       </div>
     </div>
@@ -39,7 +39,8 @@
 
 </template>
 
-<script scope>
+<script >
+import main from '../../main'
 export default {
   data: function(){
     return {
@@ -66,40 +67,45 @@ export default {
   methods: {
     back_login(){
       this.$router.push({path:'/login'});
-    }
-    // login(){
-    //   if(this.ruleForm.username===""){
-    //     this.$message({type: 'info', message: '用户名必须输入！'});
-    //   }else if(this.ruleForm.password===""){
-    //     this.$message({type: 'info', message: '密码必须输入！'});
-    //   }else{
-    //
-    //     this.$http.post(main.url+"/login/login",
-    //         {'username': this.ruleForm.username, 'password': this.ruleForm.password},
-    //         {
-    //           headers: {'Content-Type':'application/x-www-form-urlencoded'},
-    //           emulateJSON: true
-    //         }).then(
-    //         success => {
-    //           if(success.data.id != null){
-    //             this.$message({type: 'success', message: '登录成功'});
-    //             localStorage.setItem('username',this.ruleForm.username);
-    //             localStorage.setItem('role',success.data.role);
-    //             localStorage.setItem('id',success.data.id);
-    //             this.$router.push({ path: '/admin' });
-    //             this.ruleForm.username='';
-    //           }else{
-    //             this.$message({type: 'error', message: '用户名或密码错误'});
-    //           }
-    //           this.ruleForm.password='';
-    //           this.dialogVisible=true;
-    //         }
-    //     );
-    //   }
-    // },
-    // cancel(){
-    //   this.$router.push({ path: '/' });
-    // },
+    },
+    register(){
+      var params=new URLSearchParams();
+      params.append('username',window.JSON.stringify(this.ruleForm.username))
+      params.append('password',window.JSON.stringify(this.ruleForm.password))
+      if(this.ruleForm.username===""){
+        this.$message({type: 'info', message: '用户名必须输入！'});
+      }else if(this.ruleForm.password===""){
+        this.$message({type: 'info', message: '密码必须输入！'});
+      }else{
+        console.log(params)
+          this.$http({
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            url: main.url+"/login/add",
+            method: 'post',
+            data: this.$qs.stringify({username:this.ruleForm.username,password:this.ruleForm.password})
+          }).then(res => {
+            console.log(res)
+            this.$message({type: 'success', message: '登录成功'});
+            this.$router.push({path:'/login'})
+          })
+
+        // this.$http.post(main.url+"/login/add",
+        //     {"username": Qs.stringify(this.ruleForm.username), "password": Qs.stringify(this.ruleForm.password)},
+        //     {
+        //       headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        //       emulateJSON: true
+        //     }).then((res)=>{
+        //       console.log(res);
+        //     }
+        //
+        // );
+      }
+    },
+    cancel(){
+      this.$router.push({ path: '/' });
+    },
 
   }
 }
@@ -202,7 +208,7 @@ export default {
 }
 
 .button1{
-  margin-right: 160px;
+  margin-right: 150px;
   font-size: 16px;
   font-family: "宋体";
   font-weight: bolder;

@@ -1,27 +1,45 @@
 <template>
-  <el-row class="demo-avatar demo-basic">
-    <el-col :span="12">
-      <div class="sub-title">头像</div>
-      <div class="demo-basic--circle">
-        <div class="block">
-          <el-avatar :size="200" :src="circleUrl"/>
-        </div>
-        <div v-for="size in sizeList" :key="size" class="block">
-          <el-avatar :size="size" :src="circleUrl"/>
-        </div>
-      </div>
-    </el-col>
-  </el-row>
+  <div>用户名：{{username}}</div>
+<!--  <el-row class="demo-avatar demo-basic">-->
+<!--    <el-col :span="12">-->
+<!--      <div class="sub-title">用户名</div>-->
+<!--      <div class="demo-basic&#45;&#45;circle">-->
+<!--        <div class="block">-->
+<!--          <el-avatar :size="200" :src="circleUrl"/>-->
+<!--        </div>-->
+<!--        <div v-for="size in sizeList" :key="size" class="block">-->
+<!--          <el-avatar :size="size" :src="circleUrl"/>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </el-col>-->
+<!--  </el-row>-->
 
 </template>
 
 <script>
 export default {
   name: "RegularPage",
+  data:function (){
+    return{
+      username:''
+    }
+  },
+  created() {
+    this.init()
+  },
+
   methods:{
 
+  init(){
+  this.username=localStorage.getItem('username')
+  }
   }
 }
+
+
+
+
+
 </script>
 
 <style scoped>

@@ -9,7 +9,7 @@
                 autocomplete="new-password"
                 type="text"
                 name=""
-                v-model="username"
+                v-model="ruleForm.username"
                 required=""
                 key="username-v3"
             />
@@ -20,7 +20,7 @@
                 autocomplete="new-password"
                 type="password"
                 name=""
-                v-model="password"
+                v-model="ruleForm.password"
                 required=""
                 key="password-v3"
             />
@@ -72,27 +72,29 @@ export default {
         this.$message({type: 'info', message: '密码必须输入！'});
       }else{
 
-        this.$http.post(main.url+"/login/login2",
-            {'username': this.ruleForm.username, 'password': this.ruleForm.password},
-            {
-              headers: {'Content-Type':'application/x-www-form-urlencoded'},
-              emulateJSON: true
-            }).then(
-            success => {
-              if(success.data.id != null){
-                this.$message({type: 'success', message: '登录成功'});
-                localStorage.setItem('username',this.ruleForm.username);
-                localStorage.setItem('role',success.data.role);
-                localStorage.setItem('id',success.data.id);
-                this.$router.push({ path: '/admin' });
-                this.ruleForm.username='';
-              }else{
-                this.$message({type: 'error', message: '用户名或密码错误'});
-              }
-              this.ruleForm.password='';
-              this.dialogVisible=true;
-            }
-        );
+        this.$http({
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          url: main.url+"/login/login",
+          method: 'post',
+          data: this.$qs.stringify({username:this.ruleForm.username,password:this.ruleForm.password})
+        }).then(success => {
+          if(success.data.id != null){
+            this.$message({type: 'success', message: '登录成功'});
+            localStorage.setItem('username',this.ruleForm.username);
+            localStorage.setItem('role',success.data.role);
+            localStorage.setItem('id',success.data.id);
+            this.$router.push({ path: '/index' });
+            this.ruleForm.username='';
+          }
+          else{
+            this.$message({type: 'error', message: '用户名或密码错误'});
+          }
+          this.ruleForm.password='';
+          this.dialogVisible=true;
+        })
+
       }
     },
     cancel(){
@@ -200,7 +202,7 @@ export default {
 }
 
 .button1{
-  margin-right: 160px;
+  margin-right: 150px;
   font-size: 16px;
   font-family: "宋体";
   font-weight: bolder;
